@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <properties>
+        <projectName>boost_filesystem</projectName>
+        <boost-x86>${env.BOOST_DIR_X86}</boost-x86>
+        <boost-x64>${env.BOOST_DIR_X64}</boost-x64>
+        <boostVersion>58</boostVersion>
+        <vcname>vc120</vcname>
+        <libPrefix>${projectName}</libPrefix>
+        <skipUnzip>true</skipUnzip>
+        <envClassifier>win</envClassifier>
+    </properties>
+
+    <parent>
+        <groupId>com.nitropro</groupId>
+        <artifactId>binary_delivery</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <!--
+     build
+     x86, x64
+     debug, release
+     static, dynamic
+    -->
+    <profiles>
+        <profile>
+            <id>unix</id>
+            <properties>
+                <envClassifier>nix</envClassifier>
+            </properties>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <os>
+                    <family>unix</family>
+                </os>
+            </activation>
+        </profile>
+        <profile>
+            <id>build</id>
+            <properties>
+                <skipUnzip>false</skipUnzip>
+            </properties>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>x86</id>
+            <properties>
+                <arch>x86</arch>
+                <boostDir>${boost-x86}</boostDir>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>x64</id>
+            <properties>
+                <arch>x64</arch>
+                <boostDir>${boost-x64}</boostDir>
+            </properties>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>static</id>
+            <properties>
+                <libPrefix>lib${projectName}</libPrefix>
+            </properties>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>dynamic</id>
+            <properties>
+                <libPrefix>${projectName}</libPrefix>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>debug</id>
+            <properties>
+                <artifactSuffix>debug</artifactSuffix>
+                <libName>${libPrefix}-${vcname}-mt-gd-1_${boostVersion}</libName>
+            </properties>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>release</id>
+            <properties>
+                <artifactSuffix>release</artifactSuffix>
+                <libName>${libPrefix}-${vcname}-mt-1_${boostVersion}</libName>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
+
+    <groupId>com.nitropro.3rdparty</groupId>
+    <artifactId>${libPrefix}-${envClassifier}-${arch}-${artifactSuffix}</artifactId>
+    <version>1.${boostVersion}.0</version>
+    <packaging>pom</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.nitropro.3rdparty</groupId>
+            <artifactId>boost</artifactId>
+            <version>1.${boostVersion}.0</version>
+            <type>zip</type>
+        </dependency>
+    </dependencies>
+
+</project>
