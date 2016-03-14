@@ -1,3 +1,4 @@
+*.iml
 target/
 pom.xml.tag
 pom.xml.releaseBackup
@@ -7,3 +8,11 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
+/binary_delivery/.idea
+/binary_delivery/target
+/boost/.idea
+/boost/target
+/boost_system/.idea
+/boost_system/target
+/boost_filesystem/.idea
+/boost_filesystem/target
