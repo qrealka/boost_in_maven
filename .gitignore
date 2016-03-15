@@ -20,3 +20,4 @@ buildNumber.properties
 /msvc_example/*.sdf
 /msvc_example/*.suo
 /msvc_example/msvc_example/msvc_example.vcxproj.user
+/msvc_example/msvc_example/Debug
