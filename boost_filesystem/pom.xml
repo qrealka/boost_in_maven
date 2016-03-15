@@ -10,15 +10,17 @@
         <boost-x64>${env.BOOST_DIR_X64}</boost-x64>
         <boostVersion>58</boostVersion>
         <vcname>vc120</vcname>
-        <libPrefix>${projectName}</libPrefix>
         <skipUnzip>true</skipUnzip>
         <envClassifier>win</envClassifier>
+        <libPrefix>boost</libPrefix>
+        <arch>x86</arch>
+        <artifactSuffix>release</artifactSuffix>
     </properties>
 
     <parent>
         <groupId>com.nitropro</groupId>
         <artifactId>binary_delivery</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <!--

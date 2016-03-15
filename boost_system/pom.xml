@@ -5,20 +5,22 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <projectName>boost_system</projectName>
+        <projectName>system</projectName>
         <boost-x86>${env.BOOST_DIR_X86}</boost-x86>
         <boost-x64>${env.BOOST_DIR_X64}</boost-x64>
         <boostVersion>58</boostVersion>
         <vcname>vc120</vcname>
-        <libPrefix>${projectName}</libPrefix>
         <skipUnzip>true</skipUnzip>
         <envClassifier>win</envClassifier>
+        <libPrefix>boost</libPrefix>
+        <arch>x86</arch>
+        <artifactSuffix>release</artifactSuffix>
     </properties>
 
     <parent>
         <groupId>com.nitropro</groupId>
         <artifactId>binary_delivery</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <!--
@@ -72,7 +74,7 @@
         <profile>
             <id>static</id>
             <properties>
-                <libPrefix>lib${projectName}</libPrefix>
+                <libPrefix>libboost</libPrefix>
             </properties>
             <activation>
                 <activeByDefault>false</activeByDefault>
@@ -81,7 +83,7 @@
         <profile>
             <id>dynamic</id>
             <properties>
-                <libPrefix>${projectName}</libPrefix>
+                <libPrefix>boost</libPrefix>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -91,7 +93,7 @@
             <id>debug</id>
             <properties>
                 <artifactSuffix>debug</artifactSuffix>
-                <libName>${libPrefix}-${vcname}-mt-gd-1_${boostVersion}</libName>
+                <libName>${libPrefix}_${projectName}-${vcname}-mt-gd-1_${boostVersion}</libName>
             </properties>
             <activation>
                 <activeByDefault>false</activeByDefault>
@@ -101,7 +103,7 @@
             <id>release</id>
             <properties>
                 <artifactSuffix>release</artifactSuffix>
-                <libName>${libPrefix}-${vcname}-mt-1_${boostVersion}</libName>
+                <libName>${libPrefix}_${projectName}-${vcname}-mt-1_${boostVersion}</libName>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -110,7 +112,7 @@
     </profiles>
 
     <groupId>com.nitropro.3rdparty</groupId>
-    <artifactId>${libPrefix}-${envClassifier}-${arch}-${artifactSuffix}</artifactId>
+    <artifactId>${libPrefix}_${projectName}-${envClassifier}-${arch}-${artifactSuffix}</artifactId>
     <version>1.${boostVersion}.0</version>
     <packaging>pom</packaging>
 
