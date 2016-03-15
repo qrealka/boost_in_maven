@@ -16,3 +16,6 @@ buildNumber.properties
 /boost_system/target
 /boost_filesystem/.idea
 /boost_filesystem/target
+/msvc_example/*.sdf
+/msvc_example/*.suo
+/msvc_example/msvc_example/msvc_example.vcxproj.user
