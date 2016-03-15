@@ -52,12 +52,12 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\3rd-party\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd-party\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\3rd-party\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rd-party\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
       <Message>Install maven dependecies for debug build</Message>
@@ -65,7 +65,7 @@
 $(M2_HOME)\bin\mvn.cmd compile -P debug</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>@copy $(SolutionDir)..\3rd-party\bin\boost*-vc120-mt-gd-1_58.dll $(TargetDir)</Command>
+      <Command>@copy $(SolutionDir)3rd-party\bin\boost*-vc120-mt-gd-1_58.dll $(TargetDir)</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>copy boost dll to target dir</Message>
@@ -80,13 +80,14 @@ $(M2_HOME)\bin\mvn.cmd compile -P debug</Command>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd-party\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\3rd-party\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rd-party\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
       <Command>@cd $(SolutionDir)
@@ -96,7 +97,7 @@ $(M2_HOME)\bin\mvn.cmd compile</Command>
       <Message>install maven dependencies for release build</Message>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>@copy $(SolutionDir)..\3rd-party\bin\boost*-vc120-mt-1_58.dll $(TargetDir)</Command>
+      <Command>@copy $(SolutionDir)3rd-party\bin\boost*-vc120-mt-1_58.dll $(TargetDir)</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>copy boost dll to target dir</Message>

@@ -8,6 +8,7 @@
         <projectName>filesystem</projectName>
         <boost-x86>${env.BOOST_DIR_X86}</boost-x86>
         <boost-x64>${env.BOOST_DIR_X64}</boost-x64>
+		<boostDir>${boost-x86}</boostDir>
         <boostVersion>58</boostVersion>
         <vcname>vc120</vcname>
         <skipUnzip>true</skipUnzip>
@@ -15,7 +16,7 @@
         <libPrefix>boost</libPrefix>
         <arch>x86</arch>
         <artifactSuffix>release</artifactSuffix>
-        <destDir></destDir>
+		<libName>${libPrefix}_${projectName}-${vcname}-mt-1_${boostVersion}</libName>
     </properties>
 
     <parent>
