@@ -13,7 +13,7 @@
             <includes>
                 <include>boost/**</include>
             </includes>
-            <outputDirectory>3rd-party</outputDirectory>
+            <outputDirectory>3rd-party/include</outputDirectory>
         </fileSet>
     </fileSets>
 

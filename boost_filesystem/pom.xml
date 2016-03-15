@@ -15,6 +15,7 @@
         <libPrefix>boost</libPrefix>
         <arch>x86</arch>
         <artifactSuffix>release</artifactSuffix>
+        <destDir></destDir>
     </properties>
 
     <parent>
