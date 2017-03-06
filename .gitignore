@@ -21,3 +21,6 @@ buildNumber.properties
 /msvc_example/*.suo
 /msvc_example/msvc_example/msvc_example.vcxproj.user
 /msvc_example/msvc_example/Debug
+/msvc_example/3rd-party/boost
+/msvc_example/3rd-party/bin
+/msvc_example/Debug
